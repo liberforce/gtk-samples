@@ -15,11 +15,6 @@ static void create_win32_native_file_chooser(GtkWidget *widget, gpointer user_da
                                                   "cancel label") ; 
  
   gtk_native_dialog_show(GTK_NATIVE_DIALOG(win32_native_file_chooser)) ;
- 
-  gtk_native_dialog_destroy(GTK_NATIVE_DIALOG(win32_native_file_chooser)) ;
- 
-  return ;
- 
 }
  
  
