@@ -36,6 +36,7 @@ int main (int argc, char *argv[]) {
   g_signal_connect(button, "clicked", G_CALLBACK(create_win32_native_file_chooser) , NULL);
  
   gtk_container_add(GTK_CONTAINER(window), button) ;
+  gtk_widget_show_all(window);
  
   gtk_main() ;
  
