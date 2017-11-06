@@ -15,29 +15,19 @@ gfloat f (gfloat x)
 }
 
 static gboolean
-on_expose_event (GtkWidget *widget, GdkEventExpose *event, gpointer user_data)
+on_draw (GtkWidget *widget, cairo_t *cr, gpointer user_data)
 {
-    cairo_t *cr = gdk_cairo_create (widget->window);
     GdkRectangle da;            /* GtkDrawingArea size */
     gdouble dx = 5.0, dy = 5.0; /* Pixels between each point */
     gdouble i, clip_x1 = 0.0, clip_y1 = 0.0, clip_x2 = 0.0, clip_y2 = 0.0;
-    gint unused = 0;
-
-    /* Define a clipping zone to improve performance */
-    cairo_rectangle (cr,
-            event->area.x,
-            event->area.y,
-            event->area.width,
-            event->area.height);
-    cairo_clip (cr);
+    GdkWindow *window = gtk_widget_get_window(widget);
 
     /* Determine GtkDrawingArea dimensions */
-    gdk_window_get_geometry (widget->window,
+    gdk_window_get_geometry (window,
             &da.x,
             &da.y,
             &da.width,
-            &da.height,
-            &unused);
+            &da.height);
 
     /* Draw on a black background */
     cairo_set_source_rgb (cr, 0.0, 0.0, 0.0);
@@ -68,7 +58,6 @@ on_expose_event (GtkWidget *widget, GdkEventExpose *event, gpointer user_data)
     cairo_set_source_rgba (cr, 1, 0.2, 0.2, 0.6);
     cairo_stroke (cr);
 
-    cairo_destroy (cr);
     return FALSE;
 }
 
@@ -90,8 +79,8 @@ main (int argc, char **argv)
     gtk_container_add (GTK_CONTAINER (window), da);
 
     g_signal_connect (G_OBJECT (da),
-            "expose-event",
-            G_CALLBACK (on_expose_event),
+            "draw",
+            G_CALLBACK (on_draw),
             NULL);
 
     gtk_widget_show_all (window);
