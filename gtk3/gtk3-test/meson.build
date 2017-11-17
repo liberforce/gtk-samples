@@ -1,4 +1,8 @@
-project('gtk3-test', 'c')
+project(
+    'gtk3-test',
+    'c',
+    default_options : ['c_std=c99']
+)
 
 gtk_dep = dependency('gtk+-3.0')
 sources = ['gtk3-test.c']
