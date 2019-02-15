@@ -1,7 +1,9 @@
 #!/usr/bin/env python
-##    cairo demos Copyright (C)  2007 Donn.C.Ingle
+
+##    cairo demos
 ##
-##    Contact: donn.ingle@gmail.com - I hope this email lasts.
+##    Copyright (C)  2007 Donn.C.Ingle <donn.ingle@gmail.com>
+##    Copyright (C)  2019 Luis Menina <liberforce@freeside.fr>
 ##
 ##    This program is free software; you can redistribute it and/or modify
 ##    it under the terms of the GNU General Public License as published by
