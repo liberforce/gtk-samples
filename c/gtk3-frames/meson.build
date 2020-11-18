@@ -1,5 +1,5 @@
 project(
-    'gtk3-hello',
+    'gtk3-frames',
     'c',
     default_options : ['c_std=c99']
 )
@@ -12,4 +12,4 @@ sources = [
     'main.c'
 ]
 
-executable('gtk3-hello', sources, dependencies: deps)
+executable('gtk3-frames', sources, dependencies: deps)
